@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  menuItem: string = 'Recipes';
-
-  onChangeMenuItem(menuItem: string){
-    this.menuItem = menuItem;
-  }
 }

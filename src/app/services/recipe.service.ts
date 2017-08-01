@@ -5,8 +5,6 @@ import { ShoppingListService } from "./shopping-list.service";
 
 @Injectable()
 export class RecipeService {
-    recipeSelected = new EventEmitter<Recipe>();
-
     private recipes: Recipe[] = [
         new Recipe('30-Minute Pressure Cooker Chicken...', 
                     'Tasty gooood...', 
@@ -25,6 +23,11 @@ export class RecipeService {
     getRecipes(){
         //To get a coppy, not the instance
         return this.recipes.slice();
+    }
+
+    getRecipe(id: number){
+        //To get a coppy, not the instance
+        return this.recipes[id];
     }
 
     addIngredientsToShoppingList(ingredients: Ingredient[]){
