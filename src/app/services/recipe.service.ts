@@ -20,7 +20,7 @@ export class RecipeService {
     ];
 
     constructor(private shoppingListService: ShoppingListService){
-
+    
     }
 
     getRecipes(){
@@ -39,6 +39,11 @@ export class RecipeService {
 
     addRecipe(recipe: Recipe){
         this.recipes.push(recipe);
+        this.recipesChanged.next(this.recipes.slice());
+    }
+    
+    setRecipes(recipes: Recipe[]){
+        this.recipes = recipes.slice();
         this.recipesChanged.next(this.recipes.slice());
     }
 
