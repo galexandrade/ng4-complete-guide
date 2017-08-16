@@ -9,10 +9,12 @@ import { AuthService } from "app/auth/auth.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  
   constructor(private dataStorage: DataStorage, 
               private recipeService: RecipeService,
-              private authService: AuthService) { }
+              public authService: AuthService) { 
+    
+  }
 
   ngOnInit() {
   }
