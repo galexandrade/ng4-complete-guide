@@ -11,6 +11,7 @@ import { AuthModule } from "app/auth/auth.module";
 import { CoreModule } from "app/core/core.module";
 import { StoreModule } from "@ngrx/store";
 import { shoppingListReducer } from "app/shopping-list/store/shopping-list.reducers";
+import { authReducer } from "app/auth/store/auth.reducers";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { shoppingListReducer } from "app/shopping-list/store/shopping-list.reduc
     ShoppingModule,
     AuthModule,
     CoreModule,
-    StoreModule.forRoot({shoppingList: shoppingListReducer})
+    StoreModule.forRoot({shoppingList: shoppingListReducer, auth: authReducer})
   ],
   bootstrap: [AppComponent]
 })

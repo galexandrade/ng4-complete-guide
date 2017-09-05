@@ -3,6 +3,10 @@ import { DataStorage } from "app/shared/data-storage.service";
 import { RecipeService } from "app/services/recipe.service";
 import { AuthService } from "app/auth/auth.service";
 import { HttpEvent, HttpEventType } from "@angular/common/http";
+import { Store } from "@ngrx/store";
+import * as fromApp from 'app/store/app.reducers';
+import * as fromAuth from 'app/auth/store/auth.reducers';
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'app-header',
@@ -10,14 +14,17 @@ import { HttpEvent, HttpEventType } from "@angular/common/http";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  
-  constructor(private dataStorage: DataStorage, 
+  authState: Observable<fromAuth.State>;
+
+  constructor(private dataStorage: DataStorage,
               private recipeService: RecipeService,
-              public authService: AuthService) { 
-    
+              public authService: AuthService,
+              private store: Store<fromApp.AppState>) {
+
   }
 
   ngOnInit() {
+    this.authState = this.store.select('auth');
   }
 
   onSave(){
