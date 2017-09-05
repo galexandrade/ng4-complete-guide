@@ -6,6 +6,7 @@ import { HttpEvent, HttpEventType } from "@angular/common/http";
 import { Store } from "@ngrx/store";
 import * as fromApp from 'app/store/app.reducers';
 import * as fromAuth from 'app/auth/store/auth.reducers';
+import * as authActions from 'app/auth/store/auth.actions';
 import { Observable } from "rxjs/Observable";
 
 @Component({
@@ -42,7 +43,8 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogout(){
-    this.authService.logout();
+    //this.authService.logout();
+    this.store.dispatch(new authActions.Logout());
   }
 
 }
