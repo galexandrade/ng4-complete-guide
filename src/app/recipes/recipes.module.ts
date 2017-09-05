@@ -12,6 +12,10 @@ import { DropdownDirective } from "app/shared/dropdown.directive";
 import { RecipesRoutingModule } from "app/recipes/recipes-routing.module";
 import { SharedModule } from "app/shared/shared.module";
 import { AuthGuard } from "app/auth/auth-guard.service";
+import { StoreModule } from "@ngrx/store";
+import { recipeReducer } from "app/recipes/store/recipe.reducers";
+import { EffectsModule } from "@ngrx/effects";
+import { RecipeEffects } from "app/recipes/store/recipe.effects";
 
 
 @NgModule({
@@ -27,7 +31,10 @@ import { AuthGuard } from "app/auth/auth-guard.service";
         CommonModule,
         ReactiveFormsModule,
         RecipesRoutingModule,
-        SharedModule
+        SharedModule,
+        //Used to inject dynamicly
+        StoreModule.forFeature('recipes', recipeReducer),
+        EffectsModule.forFeature([RecipeEffects])
     ]
 })
 export class RecipesModule{}

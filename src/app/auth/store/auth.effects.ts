@@ -62,7 +62,7 @@ export class AuthEffects {
             ];
         }); 
 
-    @Effect()
+    @Effect({dispatch: false})
     authLogout = this.actions$
         .ofType(AuthActions.LOGOUT)
         .do(() => {

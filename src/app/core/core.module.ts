@@ -7,7 +7,6 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { RecipeService } from "app/services/recipe.service";
 import { ShoppingListService } from "app/services/shopping-list.service";
-import { DataStorage } from "app/shared/data-storage.service";
 import { AuthService } from "app/auth/auth.service";
 import { AuthGuard } from "app/auth/auth-guard.service";
 import { AuthInteceptor } from "app/shared/auth.interceptor";
@@ -29,7 +28,6 @@ import { LogginInteceptor } from "app/shared/loggin.interceptor";
     providers: [
         RecipeService, 
         ShoppingListService, 
-        DataStorage, 
         AuthService,
         {
             provide: HTTP_INTERCEPTORS,
